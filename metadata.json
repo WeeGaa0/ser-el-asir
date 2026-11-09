@@ -1,0 +1,6 @@
+{
+  "name": "سر الأثر",
+  "description": "موقع عربي تعليمي وترفيهي عن الحضارة المصرية القديمة مع المرشدة طيبة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

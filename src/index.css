@@ -1,0 +1,279 @@
+@import "tailwindcss";
+
+:root {
+  --turq: #20A99D;
+  --sky: #1976B9;
+  --navy: #172D55;
+  --royal: #17669B;
+  --gold: #E5AC16;
+  --yel: #FFD84D;
+  --red: #D7472F;
+  --ora: #E98735;
+  --em: #25845D;
+  --sand: #F4D77C;
+  --cream: #FFF4D8;
+  --bg: linear-gradient(180deg, #20A99D 0%, #8fd3b6 25%, #F4D77C 65%, #FFD84D 100%);
+  --card: #FFF4D8;
+  --ink: #172D55;
+  --soft: #3b4f78;
+}
+
+:root[data-theme="dark"], html.dark {
+  --bg: linear-gradient(180deg, #0c1a33 0%, #12304f 40%, #3a3320 100%);
+  --card: #1f3a66;
+  --ink: #FFF4D8;
+  --soft: #cfd8ea;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Cairo', 'Tajawal', system-ui, -apple-system, sans-serif;
+  background: var(--bg) fixed;
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar for main page */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(23, 45, 85, 0.08);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ora);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.wrap {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+/* Centered styling utilities */
+.text-center-force {
+  text-align: center !important;
+}
+
+.hero-title {
+  font-size: clamp(2.6rem, 7.5vw, 4.8rem);
+  line-height: 1.15;
+  color: var(--navy);
+  text-shadow: 0 2px 0 var(--yel), 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme="dark"] .hero-title, html.dark .hero-title {
+  color: var(--yel);
+  text-shadow: 0 3px 0 var(--navy), 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: #fff;
+  background: linear-gradient(var(--ora), var(--red));
+  padding: 12px 34px;
+  border-radius: 36px;
+  border-bottom: 5px solid #9c2e1c;
+  box-shadow: 0 10px 20px rgba(215, 71, 47, 0.4);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 26px rgba(215, 71, 47, 0.5);
+}
+.cta-btn:active {
+  transform: translateY(1px);
+  border-bottom-width: 2px;
+}
+
+.sec-title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 10px auto;
+  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  font-weight: 900;
+  color: var(--ink);
+  text-align: center;
+  position: relative;
+}
+
+.sec-title-badge::before,
+.sec-title-badge::after {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  border-radius: 4px;
+  vertical-align: middle;
+}
+.sec-title-badge::before {
+  background: linear-gradient(-90deg, var(--gold), transparent);
+}
+
+.cat-card {
+  background: var(--card);
+  border: 3px solid var(--ac, var(--gold));
+  border-radius: 22px;
+  padding: 20px 14px;
+  text-align: center;
+  box-shadow: 0 8px 0 var(--ac, var(--gold)), 0 14px 22px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cat-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 0 var(--ac, var(--gold)), 0 20px 30px rgba(0, 0, 0, 0.18);
+}
+.cat-card .icon-bubble {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: var(--ac, var(--gold));
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  transition: transform 0.3s;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+.cat-card:hover .icon-bubble {
+  transform: rotate(10deg) scale(1.12);
+}
+
+/* Tayba Corner Companion (Compact, elegant, unobtrusive) */
+#tay-companion {
+  position: fixed;
+  left: 12px;
+  bottom: 0;
+  width: 105px;
+  max-width: 110px;
+  z-index: 65;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+  transition: width 0.3s ease, transform 0.3s ease;
+  transform-origin: bottom left;
+}
+@media (max-width: 768px) {
+  #tay-companion {
+    width: 72px;
+    max-width: 75px;
+    left: 4px;
+  }
+}
+#tay-companion .interactive-body {
+  pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+#tay-companion:hover .interactive-body {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+/* Floating Beetle Kamoon (Refined, clean cutout, glowing turquoise) */
+#kamoon-floater {
+  position: fixed;
+  right: 14px;
+  bottom: 16px;
+  z-index: 76;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  filter: drop-shadow(0 8px 18px rgba(6, 182, 212, 0.35)) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+}
+#kamoon-floater:hover {
+  transform: scale(1.15) rotate(4deg) translateY(-4px);
+  filter: drop-shadow(0 12px 24px rgba(6, 182, 212, 0.55)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float {
+  animation: float-gentle 3.5s ease-in-out infinite;
+}
+
+/* Music Equalizer Bars */
+@keyframes eq-1 {
+  0%, 100% { height: 4px; }
+  50% { height: 14px; }
+}
+@keyframes eq-2 {
+  0%, 100% { height: 12px; }
+  50% { height: 5px; }
+}
+@keyframes eq-3 {
+  0%, 100% { height: 6px; }
+  50% { height: 16px; }
+}
+@keyframes eq-4 {
+  0%, 100% { height: 10px; }
+  50% { height: 4px; }
+}
+.eq-bar-1 { animation: eq-1 0.7s ease-in-out infinite; }
+.eq-bar-2 { animation: eq-2 0.85s ease-in-out infinite; }
+.eq-bar-3 { animation: eq-3 0.65s ease-in-out infinite; }
+.eq-bar-4 { animation: eq-4 0.9s ease-in-out infinite; }
+
+/* Maps svg styling */
+.mapsvg {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: block;
+  background: #9fd8e6;
+  border: 4px solid var(--gold);
+  border-radius: 24px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+.mk {
+  cursor: pointer;
+  stroke: #fff;
+  stroke-width: 2.5;
+  transition: r 0.2s ease, filter 0.2s ease;
+}
+.mk:hover {
+  r: 12;
+  filter: drop-shadow(0 0 6px #fff);
+}
